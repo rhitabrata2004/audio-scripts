@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto-apply EasyEffects enhancement preset when JBL CINEMA SB271 connects
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire.service pipewire-pulse.service wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/jbl-sb271-autoeffects.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
