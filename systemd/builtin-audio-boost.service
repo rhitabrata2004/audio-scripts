@@ -1,0 +1,13 @@
+[Unit]
+Description=Pin built-in speakers at 125% volume
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire.service pipewire-pulse.service wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/builtin-audio-boost.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

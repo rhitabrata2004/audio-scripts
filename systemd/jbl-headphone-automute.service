@@ -1,0 +1,12 @@
+[Unit]
+Description=Mute internal speakers when headphone jack is active (and vice versa)
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire.service pipewire-pulse.service wireplumber.service
+
+[Service]
+ExecStart=%h/.local/bin/jbl-headphone-automute.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
